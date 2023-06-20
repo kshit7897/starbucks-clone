@@ -1,0 +1,44 @@
+.slider-inner-container {
+  width: 96%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 2em;
+  align-items: last baseline;
+  border-radius: 10px;
+  padding: 5px 0px 5px 0px;
+  margin-top: 0.5rem;
+}
+
+#slider-image {
+  height: 180px;
+}
+
+.slider-controls {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.slider-controls button {
+  margin: 0 0.5em;
+}
+.slider-text-inner {
+  font-size: 13px;
+}
+.swiper {
+  width: 70%;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-text {
+  padding-left: 25px;
+}
+.order-now-btn{
+    padding:5px 15px 5px 15px;
+}

@@ -1,0 +1,119 @@
+#footer-body {
+  background-color: #0e382c;
+}
+.footer-section-container {
+  margin: 0 auto;
+  width: 70%;
+}
+#footer-image {
+  margin-top: 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .footer-top {
+    display: block;
+  }
+}
+.social-icon {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .social-icon {
+    display: block;
+    gap: 5em;
+  }
+}
+.social-icon-insta {
+  font-size: 30px;
+  color: white;
+}
+.social-icon-facebook {
+  font-size: 30px;
+  color: white;
+}
+.social-icon-twitter {
+  font-size: 30px;
+  color: white;
+}
+Footer ul {
+  text-decoration: none;
+  list-style: none;
+  display: inline;
+}
+Footer li {
+  margin-bottom: 30px;
+}
+.app-download-link {
+  margin-top: 15px;
+}
+Footer a {
+  color: #fff;
+  font-weight: 300;
+  font-size: 14px;
+  transition-duration: 0.5s;
+}
+Footer a:hover {
+  color: grey;
+}
+Footer h3 {
+  color: #fff;
+  font-weight: 500;
+}
+.privacy-container {
+  border-top: 1px solid #e6e1e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+@media (max-width: 768px) {
+  .privacy-container {
+    display: block;
+  }
+}
+.footer-ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.footer-li {
+  margin-left: 1rem;
+  border-right: 1px solid white;
+  padding-right: 1rem;
+  color: #fff;
+  font-weight: 300;
+  font-size: 12px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.footer-li:hover {
+  color: grey;
+}
+.rights-container {
+  color: #fff;
+  font-weight: 300;
+  font-size: 10px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.rights-container:hover {
+  color: gray;
+}
+.Scroll-to-top-image {
+  width: 50px;
+  cursor: pointer;
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+}
+.top-btn{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

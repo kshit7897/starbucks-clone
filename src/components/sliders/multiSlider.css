@@ -1,0 +1,72 @@
+.container-barista {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-barista {
+  background-color: #edebe9;
+  padding-top: 15px;
+  padding-bottom: 50px;
+  margin-top: 3rem;
+}
+.multi-slide {
+  background-color: #edebe9;
+}
+.card {
+  /* width: auto; */
+  width: 350px;
+  height: 120px;
+  padding: 20px;
+  border: 1px solid rgb(226, 218, 218);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.card-horizontal {
+  /* border: 2px solid blue; */
+  display: flex;
+}
+#img-card {
+  height: 80px;
+  width: 80px;
+  border-radius: 15px;
+}
+.logo-veg {
+  width: 15px;
+}
+.card-body {
+  margin-left: 20px;
+}
+.card-title {
+  margin: 0px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.diet-text {
+  margin: 0px;
+  padding-top: 5px;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#price {
+  font-size: 14px;
+  margin-left: 8px;
+}
+.card-add-btn {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: #00754a;
+  padding: 8px 20px 8px 20px;
+  border-radius: 20px;
+}
+.diet-text-span {
+  font-size: 9px;
+  color: rgb(116, 107, 115);
+}

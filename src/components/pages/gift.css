@@ -1,0 +1,10 @@
+
+.gift-contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-gift{    
+    width: 60%;
+    margin-top: 5rem;
+}

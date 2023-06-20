@@ -1,0 +1,56 @@
+.main-container-guest{
+    background-color: #1e3932;
+}
+.inner-guest{
+    width: 70%;
+    margin: 0 auto;
+   
+}
+.guest-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e3932;
+  padding: 12px;
+}
+#know-more {
+  border: 1px solid white;
+  padding: 6px 15px;
+  border-radius: 18px;
+  color: white;
+}
+#reward-para {
+  color: rgb(231, 229, 229);
+  font-size: 18px;
+}
+.heading-handcraft {
+  color: #1e3932;
+}
+.image-url {
+  height: 108px;
+  width: 108px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgb(241, 240, 240);
+}
+.image-url:hover {
+  border: 2px solid green;
+  filter: blur(0.6px);
+  transform: scale(0.9);
+}
+.handcraft-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.handcraft-section {
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 5em;
+}
+.slider-inner-text {
+  text-align: center;
+  font-size: 14px;
+}
