@@ -1,0 +1,59 @@
+.login-out-container {
+  width: auto;
+  height: 100vh;
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner-login-out-container {
+  border: 1px solid black;
+  width: 40%;
+  height: 45%;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.info-container-login {
+  margin: 1rem;
+  border: 1px solid coral;
+  padding: 5px;
+}
+.skip-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.input-field {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  width: 95%;
+  margin-top: 0.5rem;
+}
+.login-title-text {
+  color: #1e3932;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.user-name-div {
+  color: #000;
+  opacity: 87;
+  font-weight: 300 !important;
+  font-size: 15px !important;
+  margin-bottom: 1rem;
+}
+.password-div {
+  color: #000;
+  opacity: 87;
+  font-weight: 300 !important;
+  font-size: 15px !important;
+  margin-bottom: 1rem;
+}
+.dont-have-account {
+  font-size: 12px;
+}
+#sign-up-link{
+    font-size: 14px;
+    color: green;
+}

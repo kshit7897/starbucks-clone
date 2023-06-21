@@ -1,4 +1,85 @@
-.profile-container{
-    background-color: #4f81b4;
-    height: 400px;
+.profile-container {
+  background-color: #faf6ee;
+  height: 580px;
+  margin-top: 2.5rem;
+  position: relative;
+  margin-bottom: 1rem;
 }
+
+.contain-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-image {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  padding: 8px;
+  border: 4px solid #dd9513b8;
+}
+#setting {
+  position: absolute;
+  margin-top: 10rem;
+  font-size: 26px;
+  cursor: pointer;
+}
+.setting-div {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 8rem;
+}
+
+.login-or-signup-btn {
+  border-radius: 20px;
+  padding: 10px 30px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: medium;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#right-cornar-image-div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.help-container {
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.help-icon {
+  font-size: 35px;
+  font-weight: 400;
+  color: #90990bb3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.help-text {
+  font-size: 20px;
+  color: #1e3932;
+}
+.help-svg{
+  font-size: 25px;
+}
+

@@ -11,11 +11,15 @@ const Header = () => {
       <div className="head-container">
         <div className="container-left">
           <ul className="nav-link">
-            <img
-              className="logo-header"
-              src="https://www.starbucks.in/assets/icon/logo.png"
-              alt="kshit reload"
-            />
+            <span className="main-logo">
+              <NavLink to={"/"}>
+                <img
+                  className="logo-header"
+                  src="https://www.starbucks.in/assets/icon/logo.png"
+                  alt="kshit reload"
+                />
+              </NavLink>
+            </span>
 
             <li className="link">
               <NavLink to="/">Home</NavLink>
