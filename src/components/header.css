@@ -26,7 +26,7 @@ a {
 
 @media (max-width: 455px) {
   .nav-link {
-    gap: 1em
+    gap: 1em;
   }
 }
 
@@ -34,7 +34,7 @@ a {
   height: 40px;
   width: 40;
 }
-.main-logo a{
+.main-logo a {
   border: none;
 }
 
@@ -48,7 +48,12 @@ a {
   width: 230px;
   padding: 8px 10px;
   border-radius: 20px;
-  border: 1px solid black;
+  border: 0.5px solid rgba(0, 0, 0, 0.123);
+}
+.input-search {
+  box-shadow: 0 0 2px #00000012, 0 2px 2px #0000000f, 0 1px 3px #0000001a;
+  border: none;
+  outline: none;
 }
 
 .user-icon {

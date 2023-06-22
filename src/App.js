@@ -14,6 +14,7 @@ import ReadyToEat from "./components/handCraftCurationPages/ReadyToEat";
 import Profile from "./components/profile/Profile";
 import Login from "./components/profile/login/Login";
 import LayOut from "./components/layout/LayOut";
+import SignUp from "./components/profile/login/SignUp";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="CoffeeAtHome" element={<CoffeeAtHome />} />
           <Route path="ReadyToEat" element={<ReadyToEat />} />
           <Route path="Profile" element={<Profile />} />
+          <Route path="SignUp" element={<SignUp />} />
         </Route>
         <Route path="Login" element={<Login />} />
       </Routes>
