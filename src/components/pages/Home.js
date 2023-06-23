@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Footer from "../Footer";
 import LearnMore from "../learnmore/LearnMore";
@@ -13,9 +13,23 @@ const Home = () => {
     <>
       <section className="main-container-guest">
         <div className="inner-guest">
+
           <div className="guest-panel">
+            {/* {isLoggedIn ? (
+              <>
+                <p id="reward-para">Reward are pouring! Sign up now.</p>
+                <a id="know-more" href="https://www.w3schools.com">
+                  Know More
+                </a>
+              </>
+            ) : (
+              <>
+                <p id="reward-para">Reward are pouring! Sign up now.</p>
+              </>
+            )} */}
+
             <p id="reward-para">Reward are pouring! Sign up now.</p>
-            <a id="know-more" target="_blank" href="https://www.w3schools.com">
+            <a id="know-more" href="/">
               Know More
             </a>
           </div>

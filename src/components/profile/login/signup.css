@@ -53,10 +53,10 @@
   margin-bottom: 10px;
 }
 
-@media (max-width : 768px) {
-    .form-row{
-        display: block ;
-    }
+@media (max-width: 768px) {
+  .form-row {
+    display: block;
+  }
 }
 
 .form-field {
