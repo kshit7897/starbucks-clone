@@ -1,11 +1,18 @@
 import React from "react";
 
-import { NavLink } from "react-router-dom";
-import { BiUserCircle } from "react-icons/bi";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import "./header.css";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const isSignIn = JSON.parse(localStorage.getItem("isSignIn"));
+
+  const handleClick = (e) => {
+    navigate("/profile");
+    localStorage.setItem("isSignIn", Boolean(false));
+    localStorage.removeItem("isSignIn")
+  };
   return (
     <>
       <div className="head-container">
@@ -45,12 +52,17 @@ const Header = () => {
             placeholder="Looking for something specific?"
           />
 
-          <span className="user-icon">
+          {isSignIn ? (
             <NavLink to={"/Profile"}>
-              {" "}
-              <BiUserCircle />{" "}
+              <button onClick={(e) => handleClick(e)}>Log Out</button>
             </NavLink>
-          </span>
+          ) : (
+            <>
+              <NavLink to={"/Profile"}>
+                <button onClick={(e) => handleClick(e)}>Log In</button>
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </>

@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import "./signup.css";
+import { MainContext } from "../../context/MainContext";
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
+  const {
+    email,
+    setEmail,
+    signpassword,
+    setSignPassword,
+    confirmPassword,
+    setConfirmPassword,
+    phone,
+    setPhone,
+  } = useContext(MainContext);
   const navigate = useNavigate();
 
   //---------signUp input text handler
@@ -25,7 +31,7 @@ const SignUp = () => {
   };
 
   const handlePassword = (e) => {
-    setPassword(e.target.value);
+    setSignPassword(e.target.value);
   };
 
   const handleConfirmPassword = (e) => {
@@ -37,21 +43,19 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
+    if (signpassword !== confirmPassword) {
       setConfirmPassword("Password Do Not Match");
       return;
     }
 
-    await createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, signpassword)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("user", user);
         navigate("/");
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        const errorCode = error?.code || error?.message;
+        console.error(errorCode);
       });
   };
 
@@ -114,7 +118,7 @@ const SignUp = () => {
                 <div className="form-field">
                   <label className="lables-form">Password:</label>
                   <input
-                    value={password}
+                    value={signpassword}
                     type="password"
                     placeholder="Enter Password! *"
                     onChange={handlePassword}

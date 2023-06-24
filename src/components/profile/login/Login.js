@@ -1,51 +1,67 @@
-import React, { useState } from "react";
+//in this code my setloggedin value in colsole shows undeined why and how to fix
+import React, { useContext } from "react";
 
 import { auth } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { signInWithPhoneNumber } from "firebase/auth";
+import { MainContext } from "../../context/MainContext";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import "./login.css";
-import { NavLink } from "react-router-dom";
+import { isSignIn } from "../../../common";
 
 const Login = () => {
-  const [emailOrPhone, setEmailOrPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLogeedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
-  //--------input text handler
+  const {
+    setIsLoggedIn,
+    email,
+    setEmail,
+    password,
+    setPassword,
+  } = useContext(MainContext);
+ 
+  React.useEffect(() => {
+    if (isSignIn) {  
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
 
-  const handleInputEmailOrNumber = (e) => {
-    setEmailOrPhone(e.target.value);
+  const handleEmail = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
   };
-  const handleInputPassword = (e) => {
+
+  const handlePassword = (e) => {
+    e.preventDefault();
     setPassword(e.target.value);
   };
 
-  //---------login handler
-
-  const handleLogIN = async (e) => {
+  const handleClick = async (e) => {
     e.preventDefault();
+
     try {
       let usersCredential;
-      if (emailOrPhone.includes("@")) {
+      if (email.includes("@")) {
         usersCredential = await signInWithEmailAndPassword(
           auth,
-          emailOrPhone,
+          email,
           password
         );
-      } else if (emailOrPhone === Number) {
-        usersCredential = await signInWithPhoneNumber(
-          auth,
-          emailOrPhone,
-          password
-        );
+        setIsLoggedIn(true);
+        localStorage.setItem("isSignIn", JSON.stringify(true)); // Persist isLoggedIn state in local storage
+        navigate("/");
+      } else {
+        setIsLoggedIn(false);
+        localStorage.setItem("isSignIn", JSON.stringify(false)); // Persist isLoggedIn state in local storage
+        navigate("/login");
       }
-      alert("login succesful");
-      setIsLoggedIn(true);
     } catch (error) {
-      console.log(error);
+      setIsLoggedIn(false);
+      localStorage.setItem("isSignIn", JSON.stringify(false)); // Persist isLoggedIn state in local storage
     }
-  };
+  }
 
   return (
     <>
@@ -59,17 +75,17 @@ const Login = () => {
                 </NavLink>
               </div>
               <div className="login-title">
-                <h3 className="login-title-text"> LOGIN</h3>
+                <h3 className="login-title-text">LOGIN</h3>
               </div>
-              <form onSubmit={handleLogIN} className="login-form-container">
+              <form className="login-form-container">
                 <div className="user-name-div">
                   <label id="username">USERNAME</label>
                   <input
                     className="input-field"
                     type="text"
-                    value={emailOrPhone}
-                    onChange={handleInputEmailOrNumber}
-                    placeholder="Enter Email ID or Mobile Number"
+                    value={email}
+                    onChange={handleEmail}
+                    placeholder="Enter Email ID"
                     required
                   />
                 </div>
@@ -79,7 +95,7 @@ const Login = () => {
                     className="input-field"
                     type="password"
                     value={password}
-                    onChange={handleInputPassword}
+                    onChange={handlePassword}
                     placeholder="Enter Password"
                     required
                   />
@@ -87,15 +103,13 @@ const Login = () => {
                 <div className="account-container">
                   <span className="dont-have-account">
                     Dont't have an account?
-                    <NavLink to={"/SignUp"}>
-                      <a id="sign-up-link" href="/">
-                        Sign Up
-                      </a>
+                    <NavLink id="sign-up-link" to={"/SignUp"}>
+                      Sign Up
                     </NavLink>
                   </span>
                 </div>
                 <div className="log-btn-div">
-                  <button className="log-btn">Login</button>
+                  <button className="log-btn" onClick={(e) => handleClick(e)}>Login</button>
                 </div>
                 <div className="get-help-div">
                   <span className="get-help-text">

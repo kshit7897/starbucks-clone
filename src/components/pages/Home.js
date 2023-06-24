@@ -5,6 +5,7 @@ import LearnMore from "../learnmore/LearnMore";
 import SingleSlider from "../sliders/SingleSlider";
 import MultiSlider from "../sliders/MultiSlider";
 import { NavLink } from "react-router-dom";
+import { isSignIn } from "../../common";
 
 import "./home.css";
 
@@ -13,25 +14,18 @@ const Home = () => {
     <>
       <section className="main-container-guest">
         <div className="inner-guest">
-
           <div className="guest-panel">
-            {/* {isLoggedIn ? (
-              <>
-                <p id="reward-para">Reward are pouring! Sign up now.</p>
-                <a id="know-more" href="https://www.w3schools.com">
-                  Know More
-                </a>
-              </>
-            ) : (
-              <>
-                <p id="reward-para">Reward are pouring! Sign up now.</p>
-              </>
-            )} */}
-
-            <p id="reward-para">Reward are pouring! Sign up now.</p>
-            <a id="know-more" href="/">
-              Know More
-            </a>
+            {
+              isSignIn ? (
+                <>
+                  <p id="reward-para">Login</p>
+                </>
+              ) : (
+                <>
+                  <p id="reward-para">Please Login</p> 
+                </>
+              )
+            }
           </div>
         </div>
       </section>
