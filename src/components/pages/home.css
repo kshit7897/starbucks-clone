@@ -1,10 +1,9 @@
-.main-container-guest{
-    background-color: #1e3932;
+.main-container-guest {
+  background-color: #1e3932;
 }
-.inner-guest{
-    width: 70%;
-    margin: 0 auto;
-   
+.inner-guest {
+  width: 70%;
+  margin: 0 auto;
 }
 .guest-panel {
   display: flex;
@@ -15,13 +14,28 @@
 }
 #know-more {
   border: 1px solid white;
-  padding: 6px 15px;
+  padding: 10px 15px;
   border-radius: 18px;
   color: white;
+  font-size: 12px;
 }
 #reward-para {
   color: rgb(231, 229, 229);
   font-size: 18px;
+}
+#email-text-span {
+  /* color: #00ff95; */
+  color: #ffd400de;
+  font-weight: 300;
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }
 .heading-handcraft {
   color: #1e3932;

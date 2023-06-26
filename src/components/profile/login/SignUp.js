@@ -44,18 +44,19 @@ const SignUp = () => {
     e.preventDefault();
 
     if (signpassword !== confirmPassword) {
-      setConfirmPassword("Password Do Not Match");
+      // setConfirmPassword("Password Do Not Match");
+      alert("Password Do Not Match");
       return;
     }
 
     await createUserWithEmailAndPassword(auth, email, signpassword)
       .then((userCredential) => {
         const user = userCredential.user;
-        navigate("/");
+        console.log(user);
+        navigate("/Login");
       })
       .catch((error) => {
-        const errorCode = error?.code || error?.message;
-        console.error(errorCode);
+        alert(error.code);
       });
   };
 
@@ -122,6 +123,7 @@ const SignUp = () => {
                     type="password"
                     placeholder="Enter Password! *"
                     onChange={handlePassword}
+                    autoComplete="on"
                     required
                   />
                 </div>
@@ -132,10 +134,10 @@ const SignUp = () => {
                     type="password"
                     placeholder="Re-enter Password *"
                     onChange={handleConfirmPassword}
+                    autoComplete="on"
                     required
                   />
                 </div>
-                <p>hjgd</p>
               </div>
               <button id="signup-btn" type="submit">
                 Continue

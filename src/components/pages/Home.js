@@ -5,27 +5,35 @@ import LearnMore from "../learnmore/LearnMore";
 import SingleSlider from "../sliders/SingleSlider";
 import MultiSlider from "../sliders/MultiSlider";
 import { NavLink } from "react-router-dom";
-import { isSignIn } from "../../common";
 
 import "./home.css";
 
 const Home = () => {
+  const userEmail = localStorage.getItem("setEmail");
+  const isSignIn = userEmail !== null;
+
   return (
     <>
       <section className="main-container-guest">
         <div className="inner-guest">
           <div className="guest-panel">
-            {
-              isSignIn ? (
-                <>
-                  <p id="reward-para">Login</p>
-                </>
-              ) : (
-                <>
-                  <p id="reward-para">Please Login</p> 
-                </>
-              )
-            }
+            {isSignIn ? (
+              <>
+                <p id="reward-para">
+                  Welcome : <span id="email-text-span">{userEmail}</span>
+                </p>
+              </>
+            ) : (
+              <>
+                <NavLink to={"/SignUp"}>
+                  {" "}
+                  <p id="reward-para">Rewards are pouring! Sign up now.</p>
+                </NavLink>
+                <a id="know-more" href="/">
+                  Know More
+                </a>
+              </>
+            )}
           </div>
         </div>
       </section>

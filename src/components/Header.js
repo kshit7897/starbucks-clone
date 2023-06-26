@@ -1,6 +1,7 @@
 import React from "react";
 
 import { NavLink, useNavigate } from "react-router-dom";
+import { LiaUserCircleSolid } from "react-icons/lia";
 
 import "./header.css";
 
@@ -8,10 +9,11 @@ const Header = () => {
   const navigate = useNavigate();
   const isSignIn = JSON.parse(localStorage.getItem("isSignIn"));
 
-  const handleClick = (e) => {
+  const handleLogOutClick = (e) => {
     navigate("/profile");
     localStorage.setItem("isSignIn", Boolean(false));
-    localStorage.removeItem("isSignIn")
+    localStorage.removeItem("isSignIn");
+    localStorage.removeItem("setEmail")
   };
   return (
     <>
@@ -54,13 +56,19 @@ const Header = () => {
 
           {isSignIn ? (
             <NavLink to={"/Profile"}>
-              <button onClick={(e) => handleClick(e)}>Log Out</button>
+              <button className="logOut-btn" onClick={(e) => handleLogOutClick(e)}>
+                <span>Log Out</span>
+              </button>
             </NavLink>
           ) : (
             <>
-              <NavLink to={"/Profile"}>
-                <button onClick={(e) => handleClick(e)}>Log In</button>
-              </NavLink>
+              <div id="user-icon">
+                <NavLink to={"/Profile"}>
+                  <a>
+                    <LiaUserCircleSolid />
+                  </a>
+                </NavLink>
+              </div>
             </>
           )}
         </div>

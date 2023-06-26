@@ -5,28 +5,15 @@ import { auth } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { MainContext } from "../../context/MainContext";
 import { NavLink, useNavigate } from "react-router-dom";
+import { isSignIn } from "../../../common";
 
 import "./login.css";
-import { isSignIn } from "../../../common";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const {
-    setIsLoggedIn,
-    email,
-    setEmail,
-    password,
-    setPassword,
-  } = useContext(MainContext);
- 
-  React.useEffect(() => {
-    if (isSignIn) {  
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, []);
+  const { setIsLoggedIn, email, setEmail, password, setPassword } =
+    useContext(MainContext);
 
   const handleEmail = (e) => {
     e.preventDefault();
@@ -51,6 +38,9 @@ const Login = () => {
         );
         setIsLoggedIn(true);
         localStorage.setItem("isSignIn", JSON.stringify(true)); // Persist isLoggedIn state in local storage
+        console.log("usersCredential", usersCredential);
+        setEmail(usersCredential.user.email);
+        localStorage.setItem("setEmail", usersCredential.user.email);
         navigate("/");
       } else {
         setIsLoggedIn(false);
@@ -58,10 +48,19 @@ const Login = () => {
         navigate("/login");
       }
     } catch (error) {
+      alert(error.code);
       setIsLoggedIn(false);
       localStorage.setItem("isSignIn", JSON.stringify(false)); // Persist isLoggedIn state in local storage
     }
-  }
+  };
+
+  React.useEffect(() => {
+    if (isSignIn) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
 
   return (
     <>
@@ -97,6 +96,7 @@ const Login = () => {
                     value={password}
                     onChange={handlePassword}
                     placeholder="Enter Password"
+                    autoComplete="on"
                     required
                   />
                 </div>
@@ -109,14 +109,16 @@ const Login = () => {
                   </span>
                 </div>
                 <div className="log-btn-div">
-                  <button className="log-btn" onClick={(e) => handleClick(e)}>Login</button>
+                  <button className="log-btn" onClick={(e) => handleClick(e)}>
+                    Login
+                  </button>
                 </div>
                 <div className="get-help-div">
                   <span className="get-help-text">
                     Facing trouble logging in?
-                    <a id="get-help-link" href="/">
+                    <NavLink id="get-help-link" to={"/GetHelp"}>
                       Get Help
-                    </a>
+                    </NavLink>
                   </span>
                 </div>
               </form>
